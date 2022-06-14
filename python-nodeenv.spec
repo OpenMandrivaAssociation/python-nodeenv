@@ -1,14 +1,13 @@
-# Created by pyp2rpm-3.3.5
 %global pypi_name nodeenv
 
 Name:           python-%{pypi_name}
-Version:        1.5.0
+Version:        1.6.0
 Release:        1
 Summary:        Node.js virtual environment builder
 Group:          Development/Python
 License:        BSD
 URL:            https://github.com/ekalinin/nodeenv
-Source0:        %{pypi_name}-%{version}.tar.gz
+Source0:        https://files.pythonhosted.org/packages/source/n/nodeenv/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
@@ -37,7 +36,5 @@ rm -rf %{pypi_name}.egg-info
 %license LICENSE
 %doc README.rst README.ru.rst
 %{_bindir}/nodeenv
-%{python3_sitelib}/__pycache__/*
 %{python3_sitelib}/%{pypi_name}.py
-#%{python3_sitelib}/%{pypi_name}
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
