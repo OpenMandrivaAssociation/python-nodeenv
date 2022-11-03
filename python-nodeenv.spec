@@ -1,7 +1,7 @@
 %global pypi_name nodeenv
 
 Name:           python-%{pypi_name}
-Version:        1.6.0
+Version:        1.7.0
 Release:        1
 Summary:        Node.js virtual environment builder
 Group:          Development/Python
