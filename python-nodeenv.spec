@@ -2,7 +2,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.7.0
-Release:        1
+Release:        2
 Summary:        Node.js virtual environment builder
 Group:          Development/Python
 License:        BSD
