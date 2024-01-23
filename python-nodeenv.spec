@@ -2,7 +2,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.8.0
-Release:        1
+Release:        2
 Summary:        Node.js virtual environment builder
 Group:          Development/Python
 License:        BSD
@@ -11,7 +11,7 @@ Source0:        https://files.pythonhosted.org/packages/source/n/nodeenv/%{pypi_
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
-BuildRequires:  python3dist(setuptools)
+BuildRequires:  python%{pyver}dist(setuptools)
 
 %description
 Node.js virtual environment nodeenv (node.js virtual environment) is a tool to
