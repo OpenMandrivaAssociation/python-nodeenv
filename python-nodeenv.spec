@@ -2,7 +2,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.8.0
-Release:        3
+Release:        4
 Summary:        Node.js virtual environment builder
 Group:          Development/Python
 License:        BSD
