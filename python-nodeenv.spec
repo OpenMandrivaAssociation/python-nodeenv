@@ -1,18 +1,22 @@
-%global pypi_name nodeenv
+%define module nodeenv
 
-Name:           python-%{pypi_name}
-Version:        1.9.1
-Release:        1
-Summary:        Node.js virtual environment builder
-Group:          Development/Python
-License:        BSD
-URL:            https://github.com/ekalinin/nodeenv
-Source0:        https://files.pythonhosted.org/packages/source/n/nodeenv/%{pypi_name}-%{version}.tar.gz
-BuildArch:      noarch
+Name:		python-nodenev
+Summary:	Node.js virtual environment builder
+Version:	1.10.0
+Release:	1
+License:	BSD-3-Clause
+Group:  	Development/Python
+URL:		https://github.com/ekalinin/nodeenv
+Source0:	https://files.pythonhosted.org/packages/source/n/%{module}/%{module}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
 BuildSystem:	python
+BuildArch:	noarch
+BuildRequires:	pkgconfig(python3)
+BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:  python%{pyver}dist(setuptools)
-
+BuildRequires:  python%{pyver}dist(setuptools-scm)
+BuildRequires:	python%{pyver}dist(wheel)
+Requires:	python%{pyver}dist(setuptools)
 # Called through subprocess.Popen in nodeenv.py
 Requires:	which
 
@@ -24,10 +28,14 @@ virtual environments.Also the new environment can be integrated with the
 environment which was built by virtualenv_ (python).If you use nodeenv feel
 free to add...
 
-%files -n python-%{pypi_name}
-%license LICENSE
+%prep -a
+# Remove bundled egg-info
+rm -rf %{module}.egg-info
+
+%files
 %doc README.rst README.ru.rst
-%{_bindir}/nodeenv
-%{python_sitelib}/__pycache__/*
-%{python_sitelib}/%{pypi_name}.py
-%{python_sitelib}/%{pypi_name}-%{version}.dist-info
+%license LICENSE
+%{_bindir}/%{module}
+%{python_sitelib}/__pycache__/%{module}*
+%{python_sitelib}/%{module}.py
+%{python_sitelib}/%{module}-%{version}.dist-info
