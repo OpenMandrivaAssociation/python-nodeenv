@@ -9,10 +9,6 @@ Group:  	Development/Python
 URL:		https://github.com/ekalinin/nodeenv
 Source0:	https://files.pythonhosted.org/packages/source/n/%{module}/%{module}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
-# Fix prior broken package rpm name, nothing should have been using it,
-# but provide an Obsoletes to redirect to the correct name.
-Obsoletes: python-nodenev < %{EVRD}
-
 BuildSystem:	python
 BuildArch:	noarch
 BuildRequires:	pkgconfig(python)
@@ -23,6 +19,9 @@ BuildRequires:	python%{pyver}dist(wheel)
 Requires:	python%{pyver}dist(setuptools)
 # Called through subprocess.Popen in nodeenv.py
 Requires:	which
+# Fix prior broken package rpm name, nothing should have been using it,
+# but provide an Obsoletes to redirect to the correct name.
+Obsoletes: python-nodenev < %{EVRD}
 
 %description
 Node.js virtual environment nodeenv (node.js virtual environment) is a tool to
