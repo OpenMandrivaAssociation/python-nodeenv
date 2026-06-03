@@ -21,7 +21,7 @@ Requires:	python%{pyver}dist(setuptools)
 Requires:	which
 # Fix prior broken package rpm name, nothing should have been using it,
 # but provide an Obsoletes to redirect to the correct name.
-%rename python-nodenev
+Obsoletes: python-nodenev < %{EVRD}
 
 %description
 Node.js virtual environment nodeenv (node.js virtual environment) is a tool to
