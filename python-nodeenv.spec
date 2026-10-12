@@ -3,7 +3,7 @@
 Name:		python-nodeenv
 Summary:	Node.js virtual environment builder
 Version:	1.10.0
-Release:	3
+Release:	4
 License:	BSD-3-Clause
 Group:		Development/Python
 URL:		https://github.com/ekalinin/nodeenv
@@ -34,6 +34,10 @@ free to add...
 %prep -a
 # Remove bundled egg-info
 rm -rf %{module}.egg-info
+
+%build -p
+# The sdist is not a git checkout, so the versioning backend needs the version.
+export SETUPTOOLS_SCM_PRETEND_VERSION=%{version}
 
 %files
 %doc README.rst README.ru.rst
